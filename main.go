@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	iterTry()
+	repeat()
 }
 
 func getAll() {
@@ -69,4 +69,22 @@ func iterTry() {
 	for n := range seq {
 		fmt.Println(n)
 	}
+}
+
+func compact() {
+	items := []int{1, 1, 1, 2, 3, 4, 5, 5, 5}
+	s := slices.Compact(items)
+	fmt.Println(s)
+	fmt.Println(cap(s))
+	s = slices.Clip(s)
+	fmt.Println(cap(s))
+
+	ret := slices.Concat(items, s)
+	fmt.Println(ret)
+}
+
+func repeat() {
+	items := []string{"a", "b", "c"}
+	s := slices.Repeat(items, 3)
+	fmt.Println(s)
 }
